@@ -1,16 +1,19 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Expertise from "../components/home/Expertise.astro";
+import Hero from "../components/home/Hero.astro";
+import Services from "../components/home/Services.astro";
+import Portfolio from "../components/home/Portfolio.astro";
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  description="Stone is a premium Astro theme specially designed for Business, Marketing, SaaS and Startup websites."
+  title="Stone · Premium Astro template"
+>
+  <a href="/about">About</a>
+  <Hero />
+  <Services />
+  <Portfolio />
+  <Expertise />
+</Layout>
