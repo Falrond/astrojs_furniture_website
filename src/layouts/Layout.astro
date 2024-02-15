@@ -35,8 +35,10 @@ const { description, title } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-950 dark:text-primary-200"
+    class="bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-900 dark:text-primary-200"
   >
+    <div class="cursor"></div>
+
     <Header />
     <main>
       <slot />
@@ -47,8 +49,8 @@ const { description, title } = Astro.props;
         display: none !important;
       }
     </style>
+
     <script>
-      // @ts-ignore
       import Alpine from "alpinejs";
 
       Alpine.store("theme", {

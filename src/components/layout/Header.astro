@@ -4,20 +4,21 @@ import logo_white from "../../../public/assets/logo_white.svg";
 import ThemeIcon from "../header/ThemeIcon.astro";
 ---
 
-<header x-data="{ open: false }" class="transition sticky top-0 z-50 bg-primary-50 dark:bg-primary-950">
+<header
+  x-data="{ open: false }"
+  class="header transition-all fixed w-full top-0 z-50 px-4 sm:px-6 bg-primary-50 dark:bg-primary-900 dark:text-primary-200"
+>
   <div
-    class="header mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
+    class="header-container mx-auto flex max-w-2xl items-center justify-between lg:max-w-7xl lg:px-8"
   >
     <!-- Brand logo -->
 
     <div class="flex">
-      <a
-        href="/"
-        class="rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200"
-      >
+      <a href="/" class="">
         <div class="logo">
           <span class="text-2xl sm:text-2xl lg:text-2xl">pacholczyk</span>
           <span class="text-2xl sm:text-2xl lg:text-2xl">winiecki</span>
+          <!-- <span class="small">meble na wymiar</span> -->
           <span class="small">meble na wymiar</span>
         </div>
       </a>
@@ -46,10 +47,10 @@ import ThemeIcon from "../header/ThemeIcon.astro";
   <!-- Menu content -->
 
   <nav
-    class="menu bg-primary-50 text-primary-950 antialiased dark:bg-primary-950 dark:text-primary-200"
+    class="menu bg-primary-50 text-primary-950 antialiased dark:bg-primary-900 dark:text-primary-200"
   >
     <div
-      class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
+      class="mx-auto flex max-w-2xl items-center justify-between px-4 pt-4 pb-4 sm:px-6 sm:pt-6 sm:pb-6 lg:max-w-7xl lg:px-8"
     >
       <div class="logo">
         <span class="text-2xl sm:text-2xl lg:text-3xl">pacholczyk</span>
@@ -91,17 +92,23 @@ import ThemeIcon from "../header/ThemeIcon.astro";
   }
 
   .header {
-    /* padding-top: 1.5rem; */
-    transition: all 0.3s ease-in-out;
+    padding-top: 1rem /* 16px */;
+    padding-bottom: 1rem /* 16px */;
+  }
+  .header.active {
+    padding-top: 0.5rem /* 16px */;
+    padding-bottom: 0.5rem /* 16px */;
   }
 
-  /* .header.active {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    opacity: 0.5;
-  } */
+  /* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms; */
+
+  .header.active {
+    /* padding-top: 0.75rem;
+    padding-bottom: 0.75rem; */
+    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
+    /* opacity: 0.5; */
+  }
 
   /* ----------------------------------------------------------- */
 
@@ -227,3 +234,27 @@ import ThemeIcon from "../header/ThemeIcon.astro";
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 </style>
+
+<script>
+  const headerScroll = () => {
+    const headerElement = document.querySelector(".header");
+    if (headerElement) {
+      if (window.scrollY >= 30) {
+        headerElement.classList.add(
+          "active",
+          "shadow-sm",
+          "shadow-primary-200",
+          "dark:shadow-primary-800"
+        );
+      } else {
+        headerElement.classList.remove(
+          "active",
+          "shadow-sm",
+          "shadow-primary-200",
+          "dark:shadow-primary-800"
+        );
+      }
+    }
+  };
+  window.addEventListener("scroll", headerScroll);
+</script>

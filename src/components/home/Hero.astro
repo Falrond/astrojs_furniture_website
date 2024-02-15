@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import HeroImg from "../../assets/hero.jpg";
 ---
 
-<section class="py-16 sm:py-20">
+<section class="py-16 sm:py-20 mt-16">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-16">
       <div class="flex flex-col items-start gap-8 sm:gap-10">
@@ -21,20 +21,30 @@ import HeroImg from "../../assets/hero.jpg";
               <!-- Meble na miarę Twoich potrzeb -->
             </h1>
             <p
-              class="text-lg max-w-96 text-primary-950/70 dark:text-primary-200/70 sm:text-xl"
+              class="text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl"
             >
-              Rozwiń swój potencjał i twórz z nami funkcjonalne rozwiązania
+              <!-- Rozwiń swój potencjał i twórz z nami funkcjonalne rozwiązania -->
               <!-- Nie ograniczaj się do gotowych -->
+              <!-- Jesteśmy zespołem specjalistów, którzy projektują i wykonują meble
+              dopasowane do Twoich potrzeb i stylu życia.
+              spelniajace twoje oczekiwania i pasujace do Twojego stylu życia -->
+              <!-- Jesteśmy zespołem specjalistów, którzy projektują i wykonują meble funckjonalne
+              dopasowane do Twojego stylu życia. -->
+
+              Jesteśmy zespołem specjalistów, którzy sprawią, że Twoje wnętrza
+              będą wyjątkowe i funkcjonalne.
+              <!-- Projektujemy meble, które sprawią,
+              że Twoje wnętrza będą wyjątkowe i funkcjonalne -->
             </p>
             <a
               href="/pricing"
-              class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400"
+              class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-950 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-200 dark:text-primary-950 dark:hover:bg-primary-400 dark:focus-visible:outline-primary-400"
             >
-              Dowiedz się więcej
+              Nasze realizacje
             </a>
           </div>
           <Image
-            class="h-[350px] object-cover w-full rounded-3xl"
+            class="object-cover w-full rounded-3xl"
             src={HeroImg}
             alt="Hero picture"
           />

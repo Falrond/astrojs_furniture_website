@@ -4,6 +4,13 @@ export default {
   darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    extend: {
+      transitionProperty: {
+        height: "height",
+        spacing: "margin, padding",
+        padding: "padding",
+      },
+    },
     colors: {
       current: "currentColor",
       transparent: "transparent",
