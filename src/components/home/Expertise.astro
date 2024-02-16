@@ -1,77 +1,142 @@
 ---
-
+const faq = [
+  {
+    question: "Jakie są korzyści z wybierania mebli na wymiar?",
+    answer: [
+      "Meble na wymiar są idealnie dopasowane do Twoich potrzeb i przestrzeni, co pozwala maksymalnie wykorzystać dostępną przestrzeń.",
+      "Dzięki meblom na wymiar masz pełną kontrolę nad stylem, kolorem i materiałami, co pozwala stworzyć unikalne wnętrze, które odzwierciedla Twój gust i osobowość.",
+      "Wybierając meble na wymiar, masz gwarancję wysokiej jakości wykonania i trwałości, ponieważ są one dostosowane do indywidualnych potrzeb i oczekiwań.",
+    ],
+  },
+  {
+    question: "Jak przebiega proces projektowania i wykonania mebli na wymiar?",
+    answer: [
+      "Na początku odbywa się konsultacja, podczas której omawiane są Twoje potrzeby i preferencje.",
+      "Następnie nasi projektanci tworzą wizualizacje 3D, które pozwalają zobaczyć efekt końcowy mebli w Twoim pomieszczeniu.",
+      "Po zaakceptowaniu projektu przystępujemy do produkcji mebli, a następnie montażu u Ciebie w domu.",
+    ],
+  },
+  {
+    question: "Jak długo trwa proces realizacji mebli na wymiar?",
+    answer: [
+      "Czas realizacji zależy od skali projektu oraz dostępności materiałów.",
+      "Przeważnie proces od konsultacji do montażu trwa od kilku tygodni do kilku miesięcy, w zależności od stopnia skomplikowania projektu.",
+    ],
+  },
+  {
+    question:
+      "Czy istnieje możliwość dostosowania projektu w trakcie realizacji?",
+    answer: [
+      "Tak, jesteśmy otwarci na wszelkie sugestie i zmiany w trakcie procesu realizacji projektu.",
+      "W przypadku potrzeby wprowadzenia zmian, prosimy o jak najszybszy kontakt z naszym zespołem projektowym.",
+    ],
+  },
+  {
+    question: "Czy oferujecie gwarancję na wykonane meble?",
+    answer: [
+      "Tak, wszystkie nasze meble objęte są gwarancją na jakość wykonania oraz materiały użyte do produkcji.",
+      "W razie jakichkolwiek problemów z wykonaniem mebli, prosimy o kontakt, a nasz zespół postara się jak najszybciej rozwiązać problem.",
+    ],
+  },
+  {
+    question: "Jakie materiały mogę wybrać do wykonania mebli na wymiar?",
+    answer: [
+      "Oferujemy szeroki wybór materiałów, w tym drewno, laminat, forniry, szkło, metal i wiele innych.",
+      "Decyzja o wyborze materiałów zależy od Twoich preferencji oraz indywidualnych potrzeb funkcjonalnych.",
+    ],
+  },
+  {
+    question: "Czy mogę zobaczyć przykłady waszych wcześniejszych projektów?",
+    answer: [
+      "Tak, zapraszamy do galerii na naszej stronie internetowej, gdzie prezentujemy zdjęcia naszych wcześniejszych projektów.",
+      "Możemy także zapewnić referencje od naszych zadowolonych klientów na życzenie.",
+    ],
+  },
+  {
+    question: "Jak mogę umówić się na konsultację z waszym zespołem?",
+    answer: [
+      "Aby umówić się na konsultację, prosimy o kontakt telefoniczny lub poprzez formularz kontaktowy na naszej stronie internetowej.",
+      "Nasz zespół skontaktuje się z Tobą w celu ustalenia dogodnego terminu spotkania.",
+    ],
+  },
+];
 ---
 
-<section class="py-16 sm:py-20">
-  <div class="container mx-auto py-8">
-    <div x-data="{ openTab: null }" class="w-full max-w-4xl mx-auto">
-      <div class="border rounded-lg mb-2">
-        <div
-          class="flex justify-between items-center bg-gray-200 px-4 py-2 cursor-pointer"
-          @click="openTab !== 1 ? openTab = 1 : openTab = null"
-        >
-          <p class="font-semibold">Question 1</p>
-          <svg
-            x-show="openTab !== 1"
-            class="w-4 h-4"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+<section class="pb-16 sm:pb-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">
+        Najczęściej zadawane pytania
+      </h2>
+    
+      <div
+        class="order-2 mt-8 lg:order-1 lg:mt-0 lg:flex lg:flex-row-reverse lg:items-center lg:-mx-6"
+      >
+      <div class="mt-8 lg:w-3/4 lg:mx-6 lg:mt-0">
+      <div class="" >
+
+        
+       {faq.map((question=>(
+         <div x-data="{ expanded: false }" class="py-4 px-6 mb-4 transition-all" :class=" expanded ? 'bg-primary-500/10  rounded-3xl border-t-primary-700' : '' ">
+          <h2>
+            <button
+              id="faqs-title-01"
+              type="button"
+              class="flex items-center justify-between w-full text-left font-semibold py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faqs-text-01"
+            >
+            <h3 class="text-2xl text-left font-semibold">
+              {question.question}
+            </h3>
+             
+              <svg
+                class=" shrink-0 ml-8"
+                width="16"
+                height="16"
+                xmlns="http://www.w3.org/2000/svg"
+                :fill="$store.theme.isDark ? '#e7e5e4' : '#0c0a09'"
+              >
+                <rect
+                  y="7"
+                  width="16"
+                  height="2"
+                  rx="1"
+                  class="transform origin-center transition duration-200 ease-out"
+                  :class="{'!rotate-180': expanded}"></rect>
+                <rect
+                  y="7"
+                  width="16"
+                  height="2"
+                  rx="1"
+                  class="transform origin-center rotate-90 transition duration-200 ease-out"
+                  :class="{'!rotate-180': expanded}"></rect>
+              </svg>
+            </button>
+          </h2>
+          <div
+            id="faqs-text-01"
+            role="region"
+            aria-labelledby="faqs-title-01"
+            class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
-            <path
-              fill="currentColor"
-              d="M9.293 13.293a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L10 11.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4z"
-            ></path>
-          </svg>
-          <svg
-            x-show="openTab === 1"
-            class="w-4 h-4"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M10.293 8.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L10 10.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4z"
-            ></path>
-          </svg>
+            <div class="overflow-hidden">
+              <p class="pb-3 text-base sm:text-lg">
+                {question.answer}
+              </p>
+            </div>
+          </div>
         </div>
-        <div x-show="openTab === 1" class="p-4">
-          <p>Content for question 1</p>
+       )))}
         </div>
       </div>
-
-      <div class="border rounded-lg mb-2">
-        <div
-          class="flex justify-between items-center bg-gray-200 px-4 py-2 cursor-pointer"
-          @click="openTab !== 2 ? openTab = 2 : openTab = null"
-        >
-          <p class="font-semibold">Question 2</p>
-          <svg
-            x-show="openTab !== 2"
-            class="w-4 h-4"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M9.293 13.293a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L10 11.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4z"
-            ></path>
-          </svg>
-          <svg
-            x-show="openTab === 2"
-            class="w-4 h-4"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="currentColor"
-              d="M10.293 8.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1-1.414 1.414L10 10.414l-3.293 3.293a1 1 0 0 1-1.414-1.414l4-4z"
-            ></path>
-          </svg>
-        </div>
-        <div x-show="openTab === 2" class="p-4">
-          <p>Content for question 2</p>
-        </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
+
